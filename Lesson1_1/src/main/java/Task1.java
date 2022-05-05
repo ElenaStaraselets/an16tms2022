@@ -11,5 +11,6 @@ public class Task1 {
 
         }
         System.out.println("количество положительных чисел = "+count);
+        System.out.println("количество целых чисел = "+count);
     }
 }

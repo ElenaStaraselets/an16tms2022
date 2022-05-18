@@ -164,6 +164,7 @@ public class Homework4 {
         foobar(10);
         foobar(15);
         printPrimeNumbers();
+
     }
 
 

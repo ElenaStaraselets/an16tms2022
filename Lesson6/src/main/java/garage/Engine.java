@@ -1,6 +1,6 @@
 package garage;
 
-public class Engine {
+public final class Engine {
     private String engineType;
     private int engineVolume;
     private boolean engineWork = false;

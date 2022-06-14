@@ -12,7 +12,7 @@ public class Main {
         validateChapter(string1);
 
 
-        String [] words = {"аврора", "заяц", "карьер", "коридор", "ара", "кабан", "казак"};
+        String[] words = {"аврора", "заяц", "карьер", "коридор", "ара", "кабан", "казак"};
         middleSymbols(words);
 
         String text = "Методы доступа называют ещё аксессорами (от англ. access — доступ), или по отдельности — геттерами (англ. get — чтение) and сеттерами (англ. set — запись)";
@@ -20,8 +20,8 @@ public class Main {
 
         System.out.println("count latin words = " + latinWords(text));
 
-        for (String d:words ) {
-            if(check(d)){
+        for (String d : words) {
+            if (check(d)) {
                 System.out.println(d);
             }
 
@@ -32,56 +32,57 @@ public class Main {
     public static void cutSubstroke(String aa) {
         String bb = aa;
 
-        if(aa.indexOf("A") > 0 && aa.lastIndexOf("B") >0)
+        if (aa.indexOf("A") > 0 && aa.lastIndexOf("B") > 0)
             bb = aa.substring(aa.indexOf("A"), aa.lastIndexOf("B"));
-        else if(aa.indexOf("A") > 0 && aa.lastIndexOf("B") == -1)
+        else if (aa.indexOf("A") > 0 && aa.lastIndexOf("B") == -1)
             bb = aa.substring(aa.indexOf("A"));
-        else if(aa.indexOf("A") ==-1 && aa.lastIndexOf("B") >0)
+        else if (aa.indexOf("A") == -1 && aa.lastIndexOf("B") > 0)
             bb = aa.substring(0, aa.lastIndexOf("B"));
 
 
         System.out.println(bb);
     }
 
-//2) Заменить все вхождения символа стоящего в позиции (3) на символ стоящий в позиции 0
+    //2) Заменить все вхождения символа стоящего в позиции (3) на символ стоящий в позиции 0
     public static void replaceSubstroke(String aa) {
-        String pos0 = aa.substring(0,1);
-        String pos3 = aa.substring(3,4);
-        String bb = aa.replace(pos3,pos0);
+        String pos0 = aa.substring(0, 1);
+        String pos3 = aa.substring(3, 4);
+        String bb = aa.replace(pos3, pos0);
         System.out.println(bb);
     }
-//3) В массиве находятся слова. Вывести на экран слова палиндромы
+
+    //3) В массиве находятся слова. Вывести на экран слова палиндромы
 // * (т.е которые читаются справа на лево и слева на право одинаково, например: заказ, казак, дед...)
-    private static boolean check(String w1){
+    private static boolean check(String w1) {
         boolean flag = true;
 
-        for (int i = 0; i < w1.length()/2; i++){
-            if(w1.charAt(i) != w1.charAt(w1.length() - i - 1)){
+        for (int i = 0; i < w1.length() / 2; i++) {
+            if (w1.charAt(i) != w1.charAt(w1.length() - i - 1)) {
                 flag = false;
             }
         }
         return flag;
     }
 
-    public static void validateChapter(String data){
-        StringTokenizer stPoint = new StringTokenizer(data,".");
-        while (stPoint.hasMoreTokens()){
+
+    public static void validateChapter(String data) {
+        StringTokenizer stPoint = new StringTokenizer(data, ".");
+        while (stPoint.hasMoreTokens()) {
             String phrase = stPoint.nextToken();
-            StringTokenizer wordPoint = new StringTokenizer(phrase," ");
+            StringTokenizer wordPoint = new StringTokenizer(phrase, " ");
             // check length
-            if(wordPoint.countTokens() >=3 && wordPoint.countTokens() <=5){
+            if (wordPoint.countTokens() >= 3 && wordPoint.countTokens() <= 5) {
                 System.out.println(phrase);
-            }
-            else{
+            } else {
                 boolean isPolindrom = false;
-                while (stPoint.hasMoreTokens()){
+                while (stPoint.hasMoreTokens()) {
                     String word = stPoint.nextToken();
-                    if(check(word)){
+                    if (check(word)) {
                         isPolindrom = true;
                     }
                 }
 
-                if(isPolindrom)
+                if (isPolindrom)
                     System.out.println(phrase);
             }
         }
@@ -90,14 +91,13 @@ public class Main {
 //            * Пример: "string" → "ri", "code" → "od", "Practice"→"ct".
 
     public static void middleSymbols(String[] words) {
-        for (String s1:words) {
+        for (String s1 : words) {
             if (s1.length() % 2 == 0) {
                 System.out.println(s1.substring(s1.length() / 2 - 1, s1.length() / 2 + 1));
             } else {
                 System.out.println("Нечетное количество символов в строке");
             }
         }
-
 
 
     }
@@ -110,7 +110,7 @@ public class Main {
 
         text = text.replaceAll("[^a-zA-Z0-9 ]", "");
 
-        StringTokenizer st = new StringTokenizer(text," ");
+        StringTokenizer st = new StringTokenizer(text, " ");
         return st.countTokens();
 
     }
